@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Pocket SAT</string>
+    <string name="title_activity_main">Pocket SAT</string>
+    <string name="package_name">com.pocketsat.openprep</string>
+    <string name="custom_url_scheme">com.pocketsat.openprep</string>
+</resources>
