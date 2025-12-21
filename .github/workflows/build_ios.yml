@@ -35,7 +35,13 @@ jobs:
           cd ios/App
           xcodebuild -project App.xcodeproj -scheme App -destination "generic/platform=iOS" clean
           xcodebuild -project App.xcodeproj -scheme App -destination "generic/platform=iOS" archive -archivePath build/App.xcarchive CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
-          xcodebuild -exportArchive -archivePath build/App.xcarchive -exportPath build/ipa -exportOptionsPlist App/exportOptions.plist
+          
+          # Manually create IPA to bypass signing checks
+          cd build
+          mkdir Payload
+          cp -r App.xcarchive/Products/Applications/App.app Payload/
+          zip -r ipa/App.ipa Payload
+          cd ../../..
 
       - name: Upload IPA
         uses: actions/upload-artifact@v4
