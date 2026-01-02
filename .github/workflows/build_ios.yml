@@ -39,6 +39,7 @@ jobs:
           # Manually create IPA to bypass signing checks
           cd build
           mkdir Payload
+          mkdir -p ipa
           cp -r App.xcarchive/Products/Applications/App.app Payload/
           zip -r ipa/App.ipa Payload
           cd ../../..
